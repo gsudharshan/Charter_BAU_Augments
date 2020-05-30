@@ -22,6 +22,7 @@ print("\n")
 # Generate YAML for A-Router side
 print("  " + df.iloc[0,0] + ":")
 print("    jira: " + df2.iloc[0, 0])
+print("    path: " + df2.iloc[0, 1])
 print("    test:")
 for i in range(len(df)):
     print("      " + (df.iloc[i, 4]) + ":")
@@ -62,6 +63,7 @@ print("\n")
 # Generate YAML for Z-Router side
 print("  " + df.iloc[0, 16] + ":")
 print("    jira: " + df2.iloc[0, 0])
+print("    path: " + df2.iloc[0, 1])
 print("    test:")
 for i in range(len(df)):
     print("      " + (df.iloc[i, 12]) + ":")

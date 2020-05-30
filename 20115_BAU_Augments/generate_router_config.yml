@@ -11,4 +11,4 @@
       file: path=router_config  state=directory
       run_once: true
     - name: Generate Configuration
-      template: src={{dev_os}}/augment_template.j2 dest=router_config/{{inventory_hostname}}-{{ nodes[inventory_hostname].jira }}-router-config.txt
+      template: src={{dev_os}}/augment_template.j2 dest=router_config/{{inventory_hostname}}-{{ nodes[inventory_hostname].jira }}-{{ nodes[inventory_hostname].path }}-router-config.txt
