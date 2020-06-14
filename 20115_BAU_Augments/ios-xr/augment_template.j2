@@ -58,7 +58,7 @@ show route ipv6 unicast {{ node.new_bundle_1.a_router_ipv6 }}
 LAG Configuration:
 
 interface be{{ node.new_bundle_1.lag }}
-interface be{{ node.new_bundle_1.lag }} [TYPE={{ node.new_bundle_1.type|upper }}][BW={{ node.new_bundle_1.bw }}G][GRNT={{ node.new_bundle_1.lag_grnt|upper }}][ZLOC={{ node.new_bundle_1.zloc|upper }}][ZPRT=BE{{ node.new_bundle_1.zprt }}][IP={{ node.new_bundle_1.z_router_ip }}] 
+interface be{{ node.new_bundle_1.lag }} description [TYPE={{ node.new_bundle_1.type|upper }}][BW={{ node.new_bundle_1.bw }}G][GRNT={{ node.new_bundle_1.lag_grnt|upper }}][ZLOC={{ node.new_bundle_1.zloc|upper }}][ZPRT=BE{{ node.new_bundle_1.zprt }}][IP={{ node.new_bundle_1.z_router_ip }}] 
 interface be{{ node.new_bundle_1.lag }} mtu 9216
 interface be{{ node.new_bundle_1.lag }} service-policy QSP-ALL-CORE-PROTECTED-OUT
 interface be{{ node.new_bundle_1.lag }} ipv4 address {{ node.new_bundle_1.a_router_ipv4 }}
@@ -100,7 +100,7 @@ show route ipv6 unicast {{ node.new_bundle_2.a_router_ipv6 }}
 LAG Configuration:
 
 interface be{{ node.new_bundle_2.lag }}
-interface be{{ node.new_bundle_2.lag }} [TYPE={{ node.new_bundle_2.type|upper }}][BW={{ node.new_bundle_2.bw }}G][GRNT={{ node.new_bundle_2.lag_grnt|upper }}][ZLOC={{ node.new_bundle_2.zloc|upper }}][ZPRT=BE{{ node.new_bundle_2.zprt }}][IP={{ node.new_bundle_2.z_router_ip }}]
+interface be{{ node.new_bundle_2.lag }} description [TYPE={{ node.new_bundle_2.type|upper }}][BW={{ node.new_bundle_2.bw }}G][GRNT={{ node.new_bundle_2.lag_grnt|upper }}][ZLOC={{ node.new_bundle_2.zloc|upper }}][ZPRT=BE{{ node.new_bundle_2.zprt }}][IP={{ node.new_bundle_2.z_router_ip }}]
 interface be{{ node.new_bundle_2.lag }} mtu 9216
 interface be{{ node.new_bundle_2.lag }} service-policy QSP-ALL-CORE-PROTECTED-OUT
 interface be{{ node.new_bundle_2.lag }} ipv4 address {{ node.new_bundle_2.a_router_ipv4 }}
@@ -142,7 +142,7 @@ show route ipv6 unicast {{ node.new_bundle_3.a_router_ipv6 }}
 LAG Configuration:
 
 interface be{{ node.new_bundle_3.lag }}
-interface be{{ node.new_bundle_3.lag }} [TYPE={{ node.new_bundle_3.type|upper }}][BW={{ node.new_bundle_3.bw }}G][GRNT={{ node.new_bundle_3.lag_grnt|upper }}][ZLOC={{ node.new_bundle_3.zloc|upper }}][ZPRT=BE{{ node.new_bundle_3.zprt }}][IP={{ node.new_bundle_3.z_router_ip }}]
+interface be{{ node.new_bundle_3.lag }} description [TYPE={{ node.new_bundle_3.type|upper }}][BW={{ node.new_bundle_3.bw }}G][GRNT={{ node.new_bundle_3.lag_grnt|upper }}][ZLOC={{ node.new_bundle_3.zloc|upper }}][ZPRT=BE{{ node.new_bundle_3.zprt }}][IP={{ node.new_bundle_3.z_router_ip }}]
 interface be{{ node.new_bundle_3.lag }} mtu 9216
 interface be{{ node.new_bundle_3.lag }} service-policy QSP-ALL-CORE-PROTECTED-OUT
 interface be{{ node.new_bundle_3.lag }} ipv4 address {{ node.new_bundle_3.a_router_ipv4 }}
@@ -190,17 +190,17 @@ dampening 1 750 2000 4
 
 
 {% if node.bundle_1 is defined %}
-interface be{{ node.bundle_1.lag }} [TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ node.bundle_1.z_router_ip }}]
+interface be{{ node.bundle_1.lag }} description [TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ node.bundle_1.z_router_ip }}]
 {% else %}
 {% endif %}
 
 {% if node.bundle_2 is defined %}
-interface be{{ node.bundle_2.lag }} [TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ node.bundle_2.z_router_ip }}]
+interface be{{ node.bundle_2.lag }} description [TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ node.bundle_2.z_router_ip }}]
 {% else %}
 {% endif %}
 
 {% if node.bundle_3 is defined %}
-interface be{{ node.bundle_3.lag }} [TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ node.bundle_3.z_router_ip }} ]
+interface be{{ node.bundle_3.lag }} description [TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ node.bundle_3.z_router_ip }} ]
 {% else %}
 {% endif %}
 

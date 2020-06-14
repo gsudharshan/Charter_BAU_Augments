@@ -99,7 +99,7 @@ if len(df1.index) > 0 and len(df2.index) == 0:
         print("       type: " + (df.iloc[a, 15]))
         print("       bw: " + str(int(df1.iloc[a, 2])))
         print("       lag_grnt: " + (df1.iloc[a, 3]))
-        print("       zloc: " + (df.iloc[a, 16]))
+        print("       zloc: " + (df.iloc[a, 0]))
         print("       zprt: " + str(int(df1.iloc[a, 0])))
         print("       z_router_ip: " + (df1.iloc[a, 1]))
     print("\n")
