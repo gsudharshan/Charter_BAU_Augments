@@ -149,6 +149,13 @@ Remove test IP's and add interface to bundle:
 delete interfaces {{intf}}
 #
 set interfaces {{intf}} description "[TYPE={{intf_attr.type|upper}}][BW={{intf_attr.bw}}G][LAG={{intf_attr.lag}}][GRNT={{intf_attr.grnt|upper}}][ZLOC={{intf_attr.zloc|upper}}][ZPRT={{intf_attr.zprt|upper}}][AOLOC={{intf_attr.AOLOC|upper|replace("NONE", "NULL")}}][AOPRT={{intf_attr.AOPRT|upper|replace("NONE", "NULL")}}][ZOLOC={{intf_attr.ZOLOC|upper|replace("NONE", "NULL")}}][ZOPRT={{intf_attr.ZOPRT|upper|replace("NONE", "NULL")}}]"
+set interfaces {{intf}} hold-time up 500
+set interfaces {{intf}} hold-time down 0
+set interfaces {{intf}} damping half-life 1
+set interfaces {{intf}} damping max-suppress 4
+set interfaces {{intf}} damping reuse 750
+set interfaces {{intf}} damping suppress 2000
+set interfaces {{intf}} damping enable
 set interfaces {{intf}} gigether-options 802.3ad ae{{ intf_attr.lag }}
 #
 {% endfor %}

@@ -13,7 +13,7 @@ df = df.replace(np.nan, 'NULL', regex=True)
 df1 = df1.replace(np.nan, 'NULL', regex=True)
 df2 = df2.replace(np.nan, 'NULL', regex=True)
 df3 = df3.replace(np.nan, 'NULL', regex=True)
-df = df.sort_values("A_Ports")
+#df = df.sort_values("A_Ports")
 
 #Print output to a file named "input_router.yml"
 f = open('input_router.yml','w')
