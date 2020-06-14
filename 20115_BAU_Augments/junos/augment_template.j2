@@ -45,106 +45,106 @@ CHANGE SPECIFIC CONFIGURATION
 START
 
 
-{% if node.bundle_1 is defined %}
+{% if node.new_bundle_1 is defined %}
 
 Pre-checks
 
-show interfaces ae{{ node.bundle_1.lag }}
-show lacp interfaces ae{{ node.bundle_1.lag }}
-show route {{ node.bundle_1.a_router_ipv4 }}
-show route {{ node.bundle_1.a_router_ipv6 }}
+show interfaces ae{{ node.new_bundle_1.lag }}
+show lacp interfaces ae{{ node.new_bundle_1.lag }}
+show route {{ node.new_bundle_1.a_router_ipv4 }}
+show route {{ node.new_bundle_1.a_router_ipv6 }}
 
 
 LAG Configuration:
 
 
-set interfaces ae{{ node.bundle_1.lag }} description "[TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ node.bundle_1.z_router_ip }}]"
-set interfaces ae{{ node.bundle_1.lag }} mtu 9216
-set interfaces ae{{ node.bundle_1.lag }} aggregated-ether-options minimum-links 1
-set interfaces ae{{ node.bundle_1.lag }} aggregated-ether-options link-speed 100g
-set interfaces ae{{ node.bundle_1.lag }} aggregated-ether-options lacp active
-set interfaces ae{{ node.bundle_1.lag }} unit 0 family inet filter input cflowd
-set interfaces ae{{ node.bundle_1.lag }} unit 0 family inet address {{ node.bundle_1.a_router_ipv4 }}   
-set interfaces ae{{ node.bundle_1.lag }} unit 0 family iso
-set interfaces ae{{ node.bundle_1.lag }} unit 0 family inet6 address {{ node.bundle_1.a_router_ipv6 }}
-set interfaces ae{{ node.bundle_1.lag }} unit 0 family mpls
-set class-of-service interfaces ae{{ node.bundle_1.lag }} apply-groups BB_QOS
-set protocols isis interface ae{{ node.bundle_1.lag }}.0 level 2 metric 65000
-set protocols isis interface ae{{ node.bundle_1.lag }}.0 level 2 ipv6-unicast-metric 65000
-set protocols igmp interface ae{{ node.bundle_1.lag }}.0 version 3
-set protocols rsvp interface ae{{ node.bundle_1.lag }}.0
-set protocols mpls interface ae{{ node.bundle_1.lag }}.0
-set protocols pim interface ae{{ node.bundle_1.lag }}.0 mode sparse
-set protocols ldp interface ae{{ node.bundle_1.lag }}.0
+set interfaces ae{{ node.new_bundle_1.lag }} description "[TYPE={{ node.new_bundle_1.type|upper }}][BW={{ node.new_bundle_1.bw }}G][GRNT={{ node.new_bundle_1.lag_grnt|upper }}][ZLOC={{ node.new_bundle_1.zloc|upper }}][ZPRT=BE{{ node.new_bundle_1.zprt }}][IP={{ node.new_bundle_1.z_router_ip }}]"
+set interfaces ae{{ node.new_bundle_1.lag }} mtu 9216
+set interfaces ae{{ node.new_bundle_1.lag }} aggregated-ether-options minimum-links 1
+set interfaces ae{{ node.new_bundle_1.lag }} aggregated-ether-options link-speed 100g
+set interfaces ae{{ node.new_bundle_1.lag }} aggregated-ether-options lacp active
+set interfaces ae{{ node.new_bundle_1.lag }} unit 0 family inet filter input cflowd
+set interfaces ae{{ node.new_bundle_1.lag }} unit 0 family inet address {{ node.new_bundle_1.a_router_ipv4 }}   
+set interfaces ae{{ node.new_bundle_1.lag }} unit 0 family iso
+set interfaces ae{{ node.new_bundle_1.lag }} unit 0 family inet6 address {{ node.new_bundle_1.a_router_ipv6 }}
+set interfaces ae{{ node.new_bundle_1.lag }} unit 0 family mpls
+set class-of-service interfaces ae{{ node.new_bundle_1.lag }} apply-groups BB_QOS
+set protocols isis interface ae{{ node.new_bundle_1.lag }}.0 level 2 metric 65000
+set protocols isis interface ae{{ node.new_bundle_1.lag }}.0 level 2 ipv6-unicast-metric 65000
+set protocols igmp interface ae{{ node.new_bundle_1.lag }}.0 version 3
+set protocols rsvp interface ae{{ node.new_bundle_1.lag }}.0
+set protocols mpls interface ae{{ node.new_bundle_1.lag }}.0
+set protocols pim interface ae{{ node.new_bundle_1.lag }}.0 mode sparse
+set protocols ldp interface ae{{ node.new_bundle_1.lag }}.0
 {% else %}
 {% endif %}
 
-{% if node.bundle_2 is defined %}
+{% if node.new_bundle_2 is defined %}
 
 Pre-checks
 
-show interfaces ae{{ node.bundle_2.lag }}
-show lacp interfaces ae{{ node.bundle_2.lag }}
-show route {{ node.bundle_2.a_router_ipv4 }}
-show route {{ node.bundle_2.a_router_ipv6 }}
+show interfaces ae{{ node.new_bundle_2.lag }}
+show lacp interfaces ae{{ node.new_bundle_2.lag }}
+show route {{ node.new_bundle_2.a_router_ipv4 }}
+show route {{ node.new_bundle_2.a_router_ipv6 }}
 
 
 LAG Configuration:
 
 
-set interfaces ae{{ node.bundle_2.lag }} description "[TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ node.bundle_2.z_router_ip }}]"
-set interfaces ae{{ node.bundle_2.lag }} mtu 9216
-set interfaces ae{{ node.bundle_2.lag }} aggregated-ether-options minimum-links 1
-set interfaces ae{{ node.bundle_2.lag }} aggregated-ether-options link-speed 100g
-set interfaces ae{{ node.bundle_2.lag }} aggregated-ether-options lacp active
-set interfaces ae{{ node.bundle_2.lag }} unit 0 family inet filter input cflowd
-set interfaces ae{{ node.bundle_2.lag }} unit 0 family inet address {{ node.bundle_2.a_router_ipv4 }}   
-set interfaces ae{{ node.bundle_2.lag }} unit 0 family iso
-set interfaces ae{{ node.bundle_2.lag }} unit 0 family inet6 address {{ node.bundle_2.a_router_ipv6 }}
-set interfaces ae{{ node.bundle_2.lag }} unit 0 family mpls
-set class-of-service interfaces ae{{ node.bundle_2.lag }} apply-groups BB_QOS
-set protocols isis interface ae{{ node.bundle_2.lag }}.0 level 2 metric 65000
-set protocols isis interface ae{{ node.bundle_2.lag }}.0 level 2 ipv6-unicast-metric 65000
-set protocols igmp interface ae{{ node.bundle_2.lag }}.0 version 3
-set protocols rsvp interface ae{{ node.bundle_2.lag }}.0
-set protocols mpls interface ae{{ node.bundle_2.lag }}.0
-set protocols pim interface ae{{ node.bundle_2.lag }}.0 mode sparse
-set protocols ldp interface ae{{ node.bundle_2.lag }}.0
+set interfaces ae{{ node.new_bundle_2.lag }} description "[TYPE={{ node.new_bundle_2.type|upper }}][BW={{ node.new_bundle_2.bw }}G][GRNT={{ node.new_bundle_2.lag_grnt|upper }}][ZLOC={{ node.new_bundle_2.zloc|upper }}][ZPRT=BE{{ node.new_bundle_2.zprt }}][IP={{ node.new_bundle_2.z_router_ip }}]"
+set interfaces ae{{ node.new_bundle_2.lag }} mtu 9216
+set interfaces ae{{ node.new_bundle_2.lag }} aggregated-ether-options minimum-links 1
+set interfaces ae{{ node.new_bundle_2.lag }} aggregated-ether-options link-speed 100g
+set interfaces ae{{ node.new_bundle_2.lag }} aggregated-ether-options lacp active
+set interfaces ae{{ node.new_bundle_2.lag }} unit 0 family inet filter input cflowd
+set interfaces ae{{ node.new_bundle_2.lag }} unit 0 family inet address {{ node.new_bundle_2.a_router_ipv4 }}   
+set interfaces ae{{ node.new_bundle_2.lag }} unit 0 family iso
+set interfaces ae{{ node.new_bundle_2.lag }} unit 0 family inet6 address {{ node.new_bundle_2.a_router_ipv6 }}
+set interfaces ae{{ node.new_bundle_2.lag }} unit 0 family mpls
+set class-of-service interfaces ae{{ node.new_bundle_2.lag }} apply-groups BB_QOS
+set protocols isis interface ae{{ node.new_bundle_2.lag }}.0 level 2 metric 65000
+set protocols isis interface ae{{ node.new_bundle_2.lag }}.0 level 2 ipv6-unicast-metric 65000
+set protocols igmp interface ae{{ node.new_bundle_2.lag }}.0 version 3
+set protocols rsvp interface ae{{ node.new_bundle_2.lag }}.0
+set protocols mpls interface ae{{ node.new_bundle_2.lag }}.0
+set protocols pim interface ae{{ node.new_bundle_2.lag }}.0 mode sparse
+set protocols ldp interface ae{{ node.new_bundle_2.lag }}.0
 {% else %}
 {% endif %}
 
 
-{% if node.bundle_3 is defined %}
+{% if node.new_bundle_3 is defined %}
 
 Pre-checks
 
-show interfaces ae{{ node.bundle_3.lag }}
-show lacp interfaces ae{{ node.bundle_3.lag }}
-show route {{ node.bundle_3.a_router_ipv4 }}
-show route {{ node.bundle_3.a_router_ipv6 }}
+show interfaces ae{{ node.new_bundle_3.lag }}
+show lacp interfaces ae{{ node.new_bundle_3.lag }}
+show route {{ node.new_bundle_3.a_router_ipv4 }}
+show route {{ node.new_bundle_3.a_router_ipv6 }}
 
 
 LAG Configuration:
 
 
-set interfaces ae{{ node.bundle_3.lag }} description "[TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ node.bundle_3.z_router_ip }}]"
-set interfaces ae{{ node.bundle_3.lag }} mtu 9216
-set interfaces ae{{ node.bundle_3.lag }} aggregated-ether-options minimum-links 1
-set interfaces ae{{ node.bundle_3.lag }} aggregated-ether-options link-speed 100g
-set interfaces ae{{ node.bundle_3.lag }} aggregated-ether-options lacp active
-set interfaces ae{{ node.bundle_3.lag }} unit 0 family inet filter input cflowd
-set interfaces ae{{ node.bundle_3.lag }} unit 0 family inet address {{ node.bundle_3.a_router_ipv4 }}   
-set interfaces ae{{ node.bundle_3.lag }} unit 0 family iso
-set interfaces ae{{ node.bundle_3.lag }} unit 0 family inet6 address {{ node.bundle_3.a_router_ipv6 }}
-set interfaces ae{{ node.bundle_3.lag }} unit 0 family mpls
-set class-of-service interfaces ae{{ node.bundle_3.lag }} apply-groups BB_QOS
-set protocols isis interface ae{{ node.bundle_3.lag }}.0 level 2 metric 65000
-set protocols isis interface ae{{ node.bundle_3.lag }}.0 level 2 ipv6-unicast-metric 65000
-set protocols igmp interface ae{{ node.bundle_3.lag }}.0 version 3
-set protocols rsvp interface ae{{ node.bundle_3.lag }}.0
-set protocols mpls interface ae{{ node.bundle_3.lag }}.0
-set protocols pim interface ae{{ node.bundle_3.lag }}.0 mode sparse
-set protocols ldp interface ae{{ node.bundle_3.lag }}.0
+set interfaces ae{{ node.new_bundle_3.lag }} description "[TYPE={{ node.new_bundle_3.type|upper }}][BW={{ node.new_bundle_3.bw }}G][GRNT={{ node.new_bundle_3.lag_grnt|upper }}][ZLOC={{ node.new_bundle_3.zloc|upper }}][ZPRT=BE{{ node.new_bundle_3.zprt }}][IP={{ node.new_bundle_3.z_router_ip }}]"
+set interfaces ae{{ node.new_bundle_3.lag }} mtu 9216
+set interfaces ae{{ node.new_bundle_3.lag }} aggregated-ether-options minimum-links 1
+set interfaces ae{{ node.new_bundle_3.lag }} aggregated-ether-options link-speed 100g
+set interfaces ae{{ node.new_bundle_3.lag }} aggregated-ether-options lacp active
+set interfaces ae{{ node.new_bundle_3.lag }} unit 0 family inet filter input cflowd
+set interfaces ae{{ node.new_bundle_3.lag }} unit 0 family inet address {{ node.new_bundle_3.a_router_ipv4 }}   
+set interfaces ae{{ node.new_bundle_3.lag }} unit 0 family iso
+set interfaces ae{{ node.new_bundle_3.lag }} unit 0 family inet6 address {{ node.new_bundle_3.a_router_ipv6 }}
+set interfaces ae{{ node.new_bundle_3.lag }} unit 0 family mpls
+set class-of-service interfaces ae{{ node.new_bundle_3.lag }} apply-groups BB_QOS
+set protocols isis interface ae{{ node.new_bundle_3.lag }}.0 level 2 metric 65000
+set protocols isis interface ae{{ node.new_bundle_3.lag }}.0 level 2 ipv6-unicast-metric 65000
+set protocols igmp interface ae{{ node.new_bundle_3.lag }}.0 version 3
+set protocols rsvp interface ae{{ node.new_bundle_3.lag }}.0
+set protocols mpls interface ae{{ node.new_bundle_3.lag }}.0
+set protocols pim interface ae{{ node.new_bundle_3.lag }}.0 mode sparse
+set protocols ldp interface ae{{ node.new_bundle_3.lag }}.0
 {% else %}
 {% endif %}
 
@@ -167,6 +167,21 @@ set interfaces {{intf}} gigether-options 802.3ad ae{{ intf_attr.lag }}
 #
 {% endfor %}
 
+{% if node.bundle_1 is defined %}
+set interfaces ae{{ node.bundle_1.lag }} description "[TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ node.bundle_1.z_router_ip }}]"
+{% else %}
+{% endif %}
+
+{% if node.bundle_2 is defined %}
+set interfaces ae{{ node.bundle_2.lag }} description "[TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ node.bundle_1.z_router_ip }}]"
+{% else %}
+{% endif %}
+
+{% if node.bundle_3 is defined %}
+set interfaces ae{{ node.bundle_3.lag }} description "[TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ node.bundle_1.z_router_ip }}]"
+{% else %}
+{% endif %}
+
 END
 
 CHANGE SPECIFIC POST-CHECKS
@@ -177,13 +192,31 @@ show interfaces {{ intf }} extensive | match err
 {% endfor %}
 
 {% if node.bundle_1 is defined %}
+show interfaces ae{{ node.bundle_1.lag }}
+show interfaces ae{{ node.bundle_1.lag }} | match err
+{% else %}
+{% endif %}
+
+{% if node.bundle_2 is defined %}
+show interfaces ae{{ node.bundle_2.lag }}
+show interfaces ae{{ node.bundle_2.lag }} | match err
+{% else %}
+{% endif %}
+
+{% if node.bundle_3 is defined %}
+show interfaces ae{{ node.bundle_3.lag }}
+show interfaces ae{{ node.bundle_3.lag }} | match err
+{% else %}
+{% endif %}
+
+{% if node.new_bundle_1 is defined %}
 
 Post-checks for new LAG
 
-show interfaces ae{{ node.bundle_1.lag }}
-show lacp interfaces ae{{ node.bundle_1.lag }}
+show interfaces ae{{ node.new_bundle_1.lag }}
+show lacp interfaces ae{{ node.new_bundle_1.lag }}
 
-ping {{ node.bundle_1.z_router_ipv4.split("/")[0] }} source {{ node.bundle_1.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
+ping {{ node.new_bundle_1.z_router_ipv4.split("/")[0] }} source {{ node.new_bundle_1.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
 
 show isis adjacency
 show mpls interface brief
@@ -194,14 +227,14 @@ show pim neighbors
 {% endif %}
 
 
-{% if node.bundle_2 is defined %}
+{% if node.new_bundle_2 is defined %}
 
 Post-checks for Bundle #2
 
-show interfaces ae{{ node.bundle_2.lag }}
-show lacp interfaces ae{{ node.bundle_2.lag }}
+show interfaces ae{{ node.new_bundle_2.lag }}
+show lacp interfaces ae{{ node.new_bundle_2.lag }}
 
-ping {{ node.bundle_2.z_router_ipv4.split("/")[0] }} source {{ node.bundle_2.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
+ping {{ node.new_bundle_2.z_router_ipv4.split("/")[0] }} source {{ node.new_bundle_2.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
 
 show isis adjacency
 show mpls interface brief
@@ -212,14 +245,14 @@ show pim neighbors
 {% endif %}
 
 
-{% if node.bundle_3 is defined %}
+{% if node.new_bundle_3 is defined %}
 
 Post-checks for Bundle #3
 
-show interfaces ae{{ node.bundle_3.lag }}
-show lacp interfaces ae{{ node.bundle_3.lag }}
+show interfaces ae{{ node.new_bundle_3.lag }}
+show lacp interfaces ae{{ node.new_bundle_3.lag }}
 
-ping {{ node.bundle_3.z_router_ipv4.split("/")[0] }} source {{ node.bundle_3.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
+ping {{ node.new_bundle_3.z_router_ipv4.split("/")[0] }} source {{ node.new_bundle_3.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
 
 show isis adjacency
 show mpls interface brief
