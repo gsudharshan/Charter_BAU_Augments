@@ -9,7 +9,7 @@ CHANGE-SPECIFIC PRE-CHECKS
 Check interfaces: 
 
 {% for intf,intf_attr in node.test.items()|sort %}
-sh run formal {{ intf }}
+sh run formal int {{ intf }}
 sh int {{ intf }} 
 {% endfor %}
 
@@ -18,7 +18,6 @@ Admin up ports:
 {% for intf,intf_attr in node.test.items()|sort %}
 no interface {{ intf }} shutdown
 {% endfor %}
-
 
 Check interface status & Light level:
 
@@ -34,7 +33,6 @@ int {{intf}} ipv4 address {{intf_attr.A_test_ip}}/31
 int {{intf}} mtu {{intf_attr.mtu}}
 {% endfor %}
 
-
 Perform ping test:
 
 
@@ -47,149 +45,149 @@ CHANGE SPECIFIC CONFIGURATION
 
 START
 
-{% if node.bundle_1 is defined %}
+{% if node.new_bundle_1 is defined %}
 
 Pre-checks for Bundle #1
 
-show interfaces be{{ node.bundle_1.lag }}
-show route {{ node.bundle_1.a_router_ipv4 }}
-show route ipv6 unicast {{ node.bundle_1.a_router_ipv6 }}
+show interfaces be{{ node.new_bundle_1.lag }}
+show route {{ node.new_bundle_1.a_router_ipv4 }}
+show route ipv6 unicast {{ node.new_bundle_1.a_router_ipv6 }}
 
 LAG Configuration:
 
-interface be{{ node.bundle_1.lag }}
-interface be{{ node.bundle_1.lag }} [TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ node.bundle_1.z_router_ip }}] 
-interface be{{ node.bundle_1.lag }} bfd address-family ipv4 multiplier 4
-interface be{{ node.bundle_1.lag }} bfd address-family ipv4 destination {{ node.bundle_1.z_router_ipv4.split("/")[0] }} 
-interface be{{ node.bundle_1.lag }} bfd address-family ipv4 fast-detect
-interface be{{ node.bundle_1.lag }} bfd address-family ipv4 minimum-interval 20
-interface be{{ node.bundle_1.lag }} mtu 9192
-interface be{{ node.bundle_1.lag }} service-policy output CRS-QoS
-interface be{{ node.bundle_1.lag }} ipv4 address {{ node.bundle_1.a_router_ipv4 }}
-interface be{{ node.bundle_1.lag }} ipv6 address {{ node.bundle_1.a_router_ipv6 }}
-interface be{{ node.bundle_1.lag }} bundle minimum-active links 1
-interface be{{ node.bundle_1.lag }} load-interval 30
-interface be{{ node.bundle_1.lag }} flow ipv4 monitor NETFLOWv4 sampler 1in4k ingress
-interface be{{ node.bundle_1.lag }} flow ipv6 monitor NETFLOWv6 sampler 1in4k ingress
-interface be{{ node.bundle_1.lag }} flow mpls monitor NETFLOWMPLS sampler 1in4k ingress
-interface be{{ node.bundle_1.lag }} dampening 1 750 2000 4
-router isis TWC interface be{{ node.bundle_1.lag }} 
-router isis TWC interface be{{ node.bundle_1.lag }} circuit-type level-2-only
-router isis TWC interface be{{ node.bundle_1.lag }} bfd minimum-interval 20
-router isis TWC interface be{{ node.bundle_1.lag }} bfd multiplier 4
-router isis TWC interface be{{ node.bundle_1.lag }} point-to-point
-router isis TWC interface be{{ node.bundle_1.lag }} hello-padding disable
-router isis TWC interface be{{ node.bundle_1.lag }} hello-interval 3
-router isis TWC interface be{{ node.bundle_1.lag }} hello-password text encrypted 010016160A05015C33
-router isis TWC interface be{{ node.bundle_1.lag }} hello-multiplier 10
-router isis TWC interface be{{ node.bundle_1.lag }} address-family ipv4 unicast 
-router isis TWC interface be{{ node.bundle_1.lag }} address-family ipv4 unicast metric 65000
-router isis TWC interface be{{ node.bundle_1.lag }} address-family ipv4 unicast mpls ldp sync
-router isis TWC interface be{{ node.bundle_1.lag }} address-family ipv6 unicast 
-router isis TWC interface be{{ node.bundle_1.lag }} address-family ipv6 unicast metric 65000
-mpls ldp interface be{{ node.bundle_1.lag }} 
-multicast-routing address-family ipv4 interface be{{ node.bundle_1.lag }} 
-multicast-routing address-family ipv4 interface be{{ node.bundle_1.lag }} enable
-router pim address-family ipv4 interface be{{ node.bundle_1.lag }} 
-router pim address-family ipv4 interface be{{ node.bundle_1.lag }} enable
+interface be{{ node.new_bundle_1.lag }}
+interface be{{ node.new_bundle_1.lag }} [TYPE={{ node.new_bundle_1.type|upper }}][BW={{ node.new_bundle_1.bw }}G][GRNT={{ node.new_bundle_1.lag_grnt|upper }}][ZLOC={{ node.new_bundle_1.zloc|upper }}][ZPRT=BE{{ node.new_bundle_1.zprt }}][IP={{ node.new_bundle_1.z_router_ip }}] 
+interface be{{ node.new_bundle_1.lag }} bfd address-family ipv4 multiplier 4
+interface be{{ node.new_bundle_1.lag }} bfd address-family ipv4 destination {{ node.new_bundle_1.z_router_ipv4.split("/")[0] }} 
+interface be{{ node.new_bundle_1.lag }} bfd address-family ipv4 fast-detect
+interface be{{ node.new_bundle_1.lag }} bfd address-family ipv4 minimum-interval 20
+interface be{{ node.new_bundle_1.lag }} mtu 9192
+interface be{{ node.new_bundle_1.lag }} service-policy output CRS-QoS
+interface be{{ node.new_bundle_1.lag }} ipv4 address {{ node.new_bundle_1.a_router_ipv4 }}
+interface be{{ node.new_bundle_1.lag }} ipv6 address {{ node.new_bundle_1.a_router_ipv6 }}
+interface be{{ node.new_bundle_1.lag }} bundle minimum-active links 1
+interface be{{ node.new_bundle_1.lag }} load-interval 30
+interface be{{ node.new_bundle_1.lag }} flow ipv4 monitor NETFLOWv4 sampler 1in4k ingress
+interface be{{ node.new_bundle_1.lag }} flow ipv6 monitor NETFLOWv6 sampler 1in4k ingress
+interface be{{ node.new_bundle_1.lag }} flow mpls monitor NETFLOWMPLS sampler 1in4k ingress
+interface be{{ node.new_bundle_1.lag }} dampening 1 750 2000 4
+router isis TWC interface be{{ node.new_bundle_1.lag }} 
+router isis TWC interface be{{ node.new_bundle_1.lag }} circuit-type level-2-only
+router isis TWC interface be{{ node.new_bundle_1.lag }} bfd minimum-interval 20
+router isis TWC interface be{{ node.new_bundle_1.lag }} bfd multiplier 4
+router isis TWC interface be{{ node.new_bundle_1.lag }} point-to-point
+router isis TWC interface be{{ node.new_bundle_1.lag }} hello-padding disable
+router isis TWC interface be{{ node.new_bundle_1.lag }} hello-interval 3
+router isis TWC interface be{{ node.new_bundle_1.lag }} hello-password text encrypted 010016160A05015C33
+router isis TWC interface be{{ node.new_bundle_1.lag }} hello-multiplier 10
+router isis TWC interface be{{ node.new_bundle_1.lag }} address-family ipv4 unicast 
+router isis TWC interface be{{ node.new_bundle_1.lag }} address-family ipv4 unicast metric 65000
+router isis TWC interface be{{ node.new_bundle_1.lag }} address-family ipv4 unicast mpls ldp sync
+router isis TWC interface be{{ node.new_bundle_1.lag }} address-family ipv6 unicast 
+router isis TWC interface be{{ node.new_bundle_1.lag }} address-family ipv6 unicast metric 65000
+mpls ldp interface be{{ node.new_bundle_1.lag }} 
+multicast-routing address-family ipv4 interface be{{ node.new_bundle_1.lag }} 
+multicast-routing address-family ipv4 interface be{{ node.new_bundle_1.lag }} enable
+router pim address-family ipv4 interface be{{ node.new_bundle_1.lag }} 
+router pim address-family ipv4 interface be{{ node.new_bundle_1.lag }} enable
 {% else %}
 {% endif %}
 
 
-{% if node.bundle_2 is defined %}
+{% if node.new_bundle_2 is defined %}
 
 Pre-checks for Bundle #2
 
-show interfaces be{{ node.bundle_2.lag }}
-show route {{ node.bundle_2.a_router_ipv4 }}
-show route ipv6 unicast {{ node.bundle_2.a_router_ipv6 }}
+show interfaces be{{ node.new_bundle_2.lag }}
+show route {{ node.new_bundle_2.a_router_ipv4 }}
+show route ipv6 unicast {{ node.new_bundle_2.a_router_ipv6 }}
 
 LAG Configuration:
 
-interface be{{ node.bundle_2.lag }}
-interface be{{ node.bundle_2.lag }} [TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ node.bundle_2.z_router_ip }}]
-interface be{{ node.bundle_2.lag }} bfd address-family ipv4 multiplier 4
-interface be{{ node.bundle_2.lag }} bfd address-family ipv4 destination {{ node.bundle_2.z_router_ipv4.split("/")[0] }}
-interface be{{ node.bundle_2.lag }} bfd address-family ipv4 fast-detect
-interface be{{ node.bundle_2.lag }} bfd address-family ipv4 minimum-interval 20
-interface be{{ node.bundle_2.lag }} mtu 9192
-interface be{{ node.bundle_2.lag }} service-policy output CRS-QoS
-interface be{{ node.bundle_2.lag }} ipv4 address {{ node.bundle_2.a_router_ipv4 }}
-interface be{{ node.bundle_2.lag }} ipv6 address {{ node.bundle_2.a_router_ipv6 }}
-interface be{{ node.bundle_2.lag }} bundle minimum-active links 1
-interface be{{ node.bundle_2.lag }} load-interval 30
-interface be{{ node.bundle_2.lag }} flow ipv4 monitor NETFLOWv4 sampler 1in4k ingress
-interface be{{ node.bundle_2.lag }} flow ipv6 monitor NETFLOWv6 sampler 1in4k ingress
-interface be{{ node.bundle_2.lag }} flow mpls monitor NETFLOWMPLS sampler 1in4k ingress
-interface be{{ node.bundle_2.lag }} dampening 1 750 2000 4
-router isis TWC interface be{{ node.bundle_2.lag }}
-router isis TWC interface be{{ node.bundle_2.lag }} circuit-type level-2-only
-router isis TWC interface be{{ node.bundle_2.lag }} bfd minimum-interval 20
-router isis TWC interface be{{ node.bundle_2.lag }} bfd multiplier 4
-router isis TWC interface be{{ node.bundle_2.lag }} point-to-point
-router isis TWC interface be{{ node.bundle_2.lag }} hello-padding disable
-router isis TWC interface be{{ node.bundle_2.lag }} hello-interval 3
-router isis TWC interface be{{ node.bundle_2.lag }} hello-password text encrypted 010016160A05015C33
-router isis TWC interface be{{ node.bundle_2.lag }} hello-multiplier 10
-router isis TWC interface be{{ node.bundle_2.lag }} address-family ipv4 unicast
-router isis TWC interface be{{ node.bundle_2.lag }} address-family ipv4 unicast metric 65000
-router isis TWC interface be{{ node.bundle_2.lag }} address-family ipv4 unicast mpls ldp sync
-router isis TWC interface be{{ node.bundle_2.lag }} address-family ipv6 unicast
-router isis TWC interface be{{ node.bundle_2.lag }} address-family ipv6 unicast metric 65000
-mpls ldp interface be{{ node.bundle_2.lag }}             
-multicast-routing address-family ipv4 interface be{{ node.bundle_2.lag }}
-multicast-routing address-family ipv4 interface be{{ node.bundle_2.lag }} enable
-router pim address-family ipv4 interface be{{ node.bundle_2.lag }}
-router pim address-family ipv4 interface be{{ node.bundle_2.lag }} enable
+interface be{{ node.new_bundle_2.lag }}
+interface be{{ node.new_bundle_2.lag }} [TYPE={{ node.new_bundle_2.type|upper }}][BW={{ node.new_bundle_2.bw }}G][GRNT={{ node.new_bundle_2.lag_grnt|upper }}][ZLOC={{ node.new_bundle_2.zloc|upper }}][ZPRT=BE{{ node.new_bundle_2.zprt }}][IP={{ node.new_bundle_2.z_router_ip }}]
+interface be{{ node.new_bundle_2.lag }} bfd address-family ipv4 multiplier 4
+interface be{{ node.new_bundle_2.lag }} bfd address-family ipv4 destination {{ node.new_bundle_2.z_router_ipv4.split("/")[0] }}
+interface be{{ node.new_bundle_2.lag }} bfd address-family ipv4 fast-detect
+interface be{{ node.new_bundle_2.lag }} bfd address-family ipv4 minimum-interval 20
+interface be{{ node.new_bundle_2.lag }} mtu 9192
+interface be{{ node.new_bundle_2.lag }} service-policy output CRS-QoS
+interface be{{ node.new_bundle_2.lag }} ipv4 address {{ node.new_bundle_2.a_router_ipv4 }}
+interface be{{ node.new_bundle_2.lag }} ipv6 address {{ node.new_bundle_2.a_router_ipv6 }}
+interface be{{ node.new_bundle_2.lag }} bundle minimum-active links 1
+interface be{{ node.new_bundle_2.lag }} load-interval 30
+interface be{{ node.new_bundle_2.lag }} flow ipv4 monitor NETFLOWv4 sampler 1in4k ingress
+interface be{{ node.new_bundle_2.lag }} flow ipv6 monitor NETFLOWv6 sampler 1in4k ingress
+interface be{{ node.new_bundle_2.lag }} flow mpls monitor NETFLOWMPLS sampler 1in4k ingress
+interface be{{ node.new_bundle_2.lag }} dampening 1 750 2000 4
+router isis TWC interface be{{ node.new_bundle_2.lag }}
+router isis TWC interface be{{ node.new_bundle_2.lag }} circuit-type level-2-only
+router isis TWC interface be{{ node.new_bundle_2.lag }} bfd minimum-interval 20
+router isis TWC interface be{{ node.new_bundle_2.lag }} bfd multiplier 4
+router isis TWC interface be{{ node.new_bundle_2.lag }} point-to-point
+router isis TWC interface be{{ node.new_bundle_2.lag }} hello-padding disable
+router isis TWC interface be{{ node.new_bundle_2.lag }} hello-interval 3
+router isis TWC interface be{{ node.new_bundle_2.lag }} hello-password text encrypted 010016160A05015C33
+router isis TWC interface be{{ node.new_bundle_2.lag }} hello-multiplier 10
+router isis TWC interface be{{ node.new_bundle_2.lag }} address-family ipv4 unicast
+router isis TWC interface be{{ node.new_bundle_2.lag }} address-family ipv4 unicast metric 65000
+router isis TWC interface be{{ node.new_bundle_2.lag }} address-family ipv4 unicast mpls ldp sync
+router isis TWC interface be{{ node.new_bundle_2.lag }} address-family ipv6 unicast
+router isis TWC interface be{{ node.new_bundle_2.lag }} address-family ipv6 unicast metric 65000
+mpls ldp interface be{{ node.new_bundle_2.lag }}             
+multicast-routing address-family ipv4 interface be{{ node.new_bundle_2.lag }}
+multicast-routing address-family ipv4 interface be{{ node.new_bundle_2.lag }} enable
+router pim address-family ipv4 interface be{{ node.new_bundle_2.lag }}
+router pim address-family ipv4 interface be{{ node.new_bundle_2.lag }} enable
 {% else %}
 {% endif %}
 
 
-{% if node.bundle_3 is defined %}
+{% if node.new_bundle_3 is defined %}
 
 Pre-checks for Bundle #3
 
-show interfaces be{{ node.bundle_3.lag }}
-show route {{ node.bundle_3.a_router_ipv4 }}
-show route ipv6 unicast {{ node.bundle_3.a_router_ipv6 }}
+show interfaces be{{ node.new_bundle_3.lag }}
+show route {{ node.new_bundle_3.a_router_ipv4 }}
+show route ipv6 unicast {{ node.new_bundle_3.a_router_ipv6 }}
 
 LAG Configuration:
 
-interface be{{ node.bundle_3.lag }}
-interface be{{ node.bundle_3.lag }} [TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ node.bundle_3.z_router_ip }} ]
-interface be{{ node.bundle_3.lag }} bfd address-family ipv4 multiplier 4
-interface be{{ node.bundle_3.lag }} bfd address-family ipv4 destination {{ node.bundle_3.z_router_ipv4.split("/")[0] }}
-interface be{{ node.bundle_3.lag }} bfd address-family ipv4 fast-detect
-interface be{{ node.bundle_3.lag }} bfd address-family ipv4 minimum-interval 20
-interface be{{ node.bundle_3.lag }} mtu 9192
-interface be{{ node.bundle_3.lag }} service-policy output CRS-QoS
-interface be{{ node.bundle_3.lag }} ipv4 address {{ node.bundle_3.a_router_ipv4 }}
-interface be{{ node.bundle_3.lag }} ipv6 address {{ node.bundle_3.a_router_ipv6 }}
-interface be{{ node.bundle_3.lag }} bundle minimum-active links 1
-interface be{{ node.bundle_3.lag }} load-interval 30
-interface be{{ node.bundle_3.lag }} flow ipv4 monitor NETFLOWv4 sampler 1in4k ingress
-interface be{{ node.bundle_3.lag }} flow ipv6 monitor NETFLOWv6 sampler 1in4k ingress
-interface be{{ node.bundle_3.lag }} flow mpls monitor NETFLOWMPLS sampler 1in4k ingress
-interface be{{ node.bundle_3.lag }} dampening 1 750 2000 4
-router isis TWC interface be{{ node.bundle_3.lag }}
-router isis TWC interface be{{ node.bundle_3.lag }} circuit-type level-2-only
-router isis TWC interface be{{ node.bundle_3.lag }} bfd minimum-interval 20
-router isis TWC interface be{{ node.bundle_3.lag }} bfd multiplier 4
-router isis TWC interface be{{ node.bundle_3.lag }} point-to-point
-router isis TWC interface be{{ node.bundle_3.lag }} hello-padding disable
-router isis TWC interface be{{ node.bundle_3.lag }} hello-interval 3
-router isis TWC interface be{{ node.bundle_3.lag }} hello-password text encrypted 010016160A05015C33
-router isis TWC interface be{{ node.bundle_3.lag }} hello-multiplier 10
-router isis TWC interface be{{ node.bundle_3.lag }} address-family ipv4 unicast
-router isis TWC interface be{{ node.bundle_3.lag }} address-family ipv4 unicast metric 65000
-router isis TWC interface be{{ node.bundle_3.lag }} address-family ipv4 unicast mpls ldp sync
-router isis TWC interface be{{ node.bundle_3.lag }} address-family ipv6 unicast
-router isis TWC interface be{{ node.bundle_3.lag }} address-family ipv6 unicast metric 65000
-mpls ldp interface be{{ node.bundle_3.lag }}             
-multicast-routing address-family ipv4 interface be{{ node.bundle_3.lag }}
-multicast-routing address-family ipv4 interface be{{ node.bundle_3.lag }} enable
-router pim address-family ipv4 interface be{{ node.bundle_3.lag }}
-router pim address-family ipv4 interface be{{ node.bundle_3.lag }} enable
+interface be{{ node.new_bundle_3.lag }}
+interface be{{ node.new_bundle_3.lag }} [TYPE={{ node.new_bundle_3.type|upper }}][BW={{ node.new_bundle_3.bw }}G][GRNT={{ node.new_bundle_3.lag_grnt|upper }}][ZLOC={{ node.new_bundle_3.zloc|upper }}][ZPRT=BE{{ node.new_bundle_3.zprt }}][IP={{ node.new_bundle_3.z_router_ip }} ]
+interface be{{ node.new_bundle_3.lag }} bfd address-family ipv4 multiplier 4
+interface be{{ node.new_bundle_3.lag }} bfd address-family ipv4 destination {{ node.new_bundle_3.z_router_ipv4.split("/")[0] }}
+interface be{{ node.new_bundle_3.lag }} bfd address-family ipv4 fast-detect
+interface be{{ node.new_bundle_3.lag }} bfd address-family ipv4 minimum-interval 20
+interface be{{ node.new_bundle_3.lag }} mtu 9192
+interface be{{ node.new_bundle_3.lag }} service-policy output CRS-QoS
+interface be{{ node.new_bundle_3.lag }} ipv4 address {{ node.new_bundle_3.a_router_ipv4 }}
+interface be{{ node.new_bundle_3.lag }} ipv6 address {{ node.new_bundle_3.a_router_ipv6 }}
+interface be{{ node.new_bundle_3.lag }} bundle minimum-active links 1
+interface be{{ node.new_bundle_3.lag }} load-interval 30
+interface be{{ node.new_bundle_3.lag }} flow ipv4 monitor NETFLOWv4 sampler 1in4k ingress
+interface be{{ node.new_bundle_3.lag }} flow ipv6 monitor NETFLOWv6 sampler 1in4k ingress
+interface be{{ node.new_bundle_3.lag }} flow mpls monitor NETFLOWMPLS sampler 1in4k ingress
+interface be{{ node.new_bundle_3.lag }} dampening 1 750 2000 4
+router isis TWC interface be{{ node.new_bundle_3.lag }}
+router isis TWC interface be{{ node.new_bundle_3.lag }} circuit-type level-2-only
+router isis TWC interface be{{ node.new_bundle_3.lag }} bfd minimum-interval 20
+router isis TWC interface be{{ node.new_bundle_3.lag }} bfd multiplier 4
+router isis TWC interface be{{ node.new_bundle_3.lag }} point-to-point
+router isis TWC interface be{{ node.new_bundle_3.lag }} hello-padding disable
+router isis TWC interface be{{ node.new_bundle_3.lag }} hello-interval 3
+router isis TWC interface be{{ node.new_bundle_3.lag }} hello-password text encrypted 010016160A05015C33
+router isis TWC interface be{{ node.new_bundle_3.lag }} hello-multiplier 10
+router isis TWC interface be{{ node.new_bundle_3.lag }} address-family ipv4 unicast
+router isis TWC interface be{{ node.new_bundle_3.lag }} address-family ipv4 unicast metric 65000
+router isis TWC interface be{{ node.new_bundle_3.lag }} address-family ipv4 unicast mpls ldp sync
+router isis TWC interface be{{ node.new_bundle_3.lag }} address-family ipv6 unicast
+router isis TWC interface be{{ node.new_bundle_3.lag }} address-family ipv6 unicast metric 65000
+mpls ldp interface be{{ node.new_bundle_3.lag }}             
+multicast-routing address-family ipv4 interface be{{ node.new_bundle_3.lag }}
+multicast-routing address-family ipv4 interface be{{ node.new_bundle_3.lag }} enable
+router pim address-family ipv4 interface be{{ node.new_bundle_3.lag }}
+router pim address-family ipv4 interface be{{ node.new_bundle_3.lag }} enable
 {% else %}
 {% endif %}
 
@@ -208,10 +206,25 @@ dampening 1 750 2000 4
 !
 {% endfor %}
 
+
+{% if node.bundle_1 is defined %}
+interface be{{ node.bundle_1.lag }} [TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ node.bundle_1.z_router_ip }}]
+{% else %}
+{% endif %}
+
+{% if node.bundle_2 is defined %}
+interface be{{ node.bundle_2.lag }} [TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ node.bundle_2.z_router_ip }}]
+{% else %}
+{% endif %}
+
+{% if node.bundle_3 is defined %}
+interface be{{ node.bundle_3.lag }} [TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ node.bundle_3.z_router_ip }} ]
+{% else %}
+{% endif %}
+
 END
 
 CHANGE-SPECIFIC POST-CHECKS: 
-
 
 {% for intf,intf_attr in node.links.items()|sort %}
 show interface {{ intf }} | in "rate|drop|err"
@@ -219,57 +232,72 @@ show interface {{ intf }} | in "rate|drop|err"
 
 
 {% if node.bundle_1 is defined %}
+show interface be{{ node.bundle_1.lag }}
+show interface be{{ node.bundle_1.lag }} | in "rate|drop|err"
+{% else %}
+{% endif %}
+
+{% if node.bundle_2 is defined %}
+show interface be{{ node.bundle_2.lag }}
+show interface be{{ node.bundle_2.lag }} | in "rate|drop|err"
+{% else %}
+{% endif %}
+
+{% if node.bundle_3 is defined %}
+show interface be{{ node.bundle_3.lag }}
+show interface be{{ node.bundle_3.lag }} | in "rate|drop|err"
+{% else %}
+{% endif %}
+
+
+{% if node.new_bundle_1 is defined %}
 
 Post-checks for Bundle #1
 
-show interfaces be{{ node.bundle_1.lag }}
-show lacp be{{ node.bundle_1.lag }}
+show interfaces be{{ node.new_bundle_1.lag }}
+show lacp be{{ node.new_bundle_1.lag }}
 
-ping {{ node.bundle_1.z_router_ipv4.split("/")[0] }} source {{ node.bundle_1.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
+ping {{ node.new_bundle_1.z_router_ipv4.split("/")[0] }} source {{ node.new_bundle_1.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
 
 show isis neighbors
 show mpls interfaces
 show igmp interfaces
 show pim neighbors 
-monitor interface be{{ node.bundle_1.lag }} be{{ node.bundle_1.lag }} wide
+monitor interface be{{ node.new_bundle_1.lag }} be{{ node.new_bundle_1.lag }} wide
 {% else %}
 {% endif %}
 
-
-
-{% if node.bundle_2 is defined %}
+{% if node.new_bundle_2 is defined %}
 
 Post-checks for Bundle #2
 
-show interfaces be{{ node.bundle_2.lag }}
-show lacp be{{ node.bundle_2.lag }}
+show interfaces be{{ node.new_bundle_2.lag }}
+show lacp be{{ node.new_bundle_2.lag }}
 
-ping {{ node.bundle_2.z_router_ipv4.split("/")[0] }} source {{ node.bundle_2.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
+ping {{ node.new_bundle_2.z_router_ipv4.split("/")[0] }} source {{ node.new_bundle_2.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
 
 show isis neighbors
 show mpls interfaces
 show igmp interfaces
 show pim neighbors
-monitor interface be{{ node.bundle_2.lag }} be{{ node.bundle_2.lag }} wide
+monitor interface be{{ node.new_bundle_2.lag }} be{{ node.new_bundle_2.lag }} wide
 {% else %}
 {% endif %}
 
-
-
-{% if node.bundle_3 is defined %}
+{% if node.new_bundle_3 is defined %}
 
 Post-checks for Bundle #3
 
-show interfaces be{{ node.bundle_3.lag }}
-show lacp be{{ node.bundle_3.lag }}
+show interfaces be{{ node.new_bundle_3.lag }}
+show lacp be{{ node.new_bundle_3.lag }}
 
-ping {{ node.bundle_3.z_router_ipv4.split("/")[0] }} source {{ node.bundle_3.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
+ping {{ node.new_bundle_3.z_router_ipv4.split("/")[0] }} source {{ node.new_bundle_3.a_router_ipv4.split("/")[0] }} count 1000 size 9000 rapid
 
 show isis neighbors
 show mpls interfaces
 show igmp interfaces
 show pim neighbors
-monitor interface be{{ node.bundle_3.lag }} be{{ node.bundle_3.lag }} wide
+monitor interface be{{ node.new_bundle_3.lag }} be{{ node.new_bundle_3.lag }} wide
 {% else %}
 {% endif %}
 

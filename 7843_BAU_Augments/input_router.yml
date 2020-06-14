@@ -6,303 +6,71 @@ nodes:
 
   cr0.nsv30:
     jira: CBOBBIPPD-3561
-    path: cr0.nsv30 to cr0.chi10 (1100G)
+    path: cr0.nsv30 to cr0.atl40 (1200G)
     test:
-      et-0/0/7:
-        A_test_ip: 169.254.0.18
-        Z_test_ip: 169.254.0.19
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-1/0/6:
-        A_test_ip: 169.254.0.2
-        Z_test_ip: 169.254.0.3
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-1/0/7:
-        A_test_ip: 169.254.0.20
-        Z_test_ip: 169.254.0.21
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-2/0/0:
-        A_test_ip: 169.254.0.0
-        Z_test_ip: 169.254.0.1
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-2/0/6:
-        A_test_ip: 169.254.0.4
-        Z_test_ip: 169.254.0.5
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-2/0/7:
-        A_test_ip: 169.254.0.22
-        Z_test_ip: 169.254.0.23
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-3/0/6:
-        A_test_ip: 169.254.0.6
-        Z_test_ip: 169.254.0.7
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-4/0/6:
-        A_test_ip: 169.254.0.8
-        Z_test_ip: 169.254.0.9
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-5/0/6:
-        A_test_ip: 169.254.0.10
-        Z_test_ip: 169.254.0.11
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-6/0/6:
-        A_test_ip: 169.254.0.12
-        Z_test_ip: 169.254.0.13
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-7/0/6:
-        A_test_ip: 169.254.0.14
-        Z_test_ip: 169.254.0.15
-        mtu: 9216
-        count: 1000
-        size: 9000
-      et-8/0/6:
+      et-0/0/13:
         A_test_ip: 169.254.0.16
         Z_test_ip: 169.254.0.17
         mtu: 9216
         count: 1000
         size: 9000
-
-
-    bundle_1:
-       lag: 402
-       type: BB
-       bw: 1500
-       lag_grnt: CHN000000
-       zloc: cr0.chi10
-       zprt: 403
-       a_router_ipv4: 107.14.19.192/31
-       a_router_ipv6: 2001:1998:0:4::fe/127
-       z_router_ip: 66.109.2.250
-       z_router_ipv4: 107.14.19.193/31
-
-
-    links:
-      et-0/0/7:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/2/0/22
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 54-A-2-T1
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 59-A-2-T1
-      et-1/0/6:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/1/0/21
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 53-A-2-T2
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 58-A-2-T2
-      et-1/0/7:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/3/0/22
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 54-A-2-T2
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 59-A-2-T2
-      et-2/0/0:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/0/0/21
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 37-A-2-T1
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 37-A-2-T1
-      et-2/0/6:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/2/0/21
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 53-A-2-T3
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 58-A-2-T3
-      et-2/0/7:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/4/0/22
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 54-A-2-T3
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 59-A-2-T3
-      et-3/0/6:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/3/0/21
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 53-A-2-T5
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 58-A-2-T5
-      et-4/0/6:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/4/0/21
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 53-A-2-T6
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 58-A-2-T6
-      et-5/0/6:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/5/0/21
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 53-A-2-T7
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 58-A-2-T7
-      et-6/0/6:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/6/0/21
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 53-A-2-T9
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 58-A-2-T9
-      et-7/0/6:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/7/0/21
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 53-A-2-T10
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 58-A-2-T10
-      et-8/0/6:
-        type: BB
-        bw: 100
-        lag: 403
-        grnt: CHN0000000
-        zloc: cr0.chi10
-        zprt: Hu0/1/0/22
-        AOLOC: NSVNTNJYOS1
-        AOPRT: 53-A-2-T11
-        ZOLOC: CHCGILDTOS1
-        ZOPRT: 58-A-2-T11
-
-
-  cr0.chi10:
-    jira: CBOBBIPPD-3561
-    path: cr0.nsv30 to cr0.chi10 (1100G)
-    test:
-      Hu0/2/0/22:
-        A_test_ip: 169.254.0.19
-        Z_test_ip: 169.254.0.18
+      et-1/0/12:
+        A_test_ip: 169.254.0.0
+        Z_test_ip: 169.254.0.1
         mtu: 9216
         count: 1000
         size: 9000
-      Hu0/1/0/21:
-        A_test_ip: 169.254.0.3
-        Z_test_ip: 169.254.0.2
+      et-1/0/13:
+        A_test_ip: 169.254.0.18
+        Z_test_ip: 169.254.0.19
         mtu: 9216
         count: 1000
         size: 9000
-      Hu0/3/0/22:
-        A_test_ip: 169.254.0.21
-        Z_test_ip: 169.254.0.20
+      et-2/0/12:
+        A_test_ip: 169.254.0.2
+        Z_test_ip: 169.254.0.3
         mtu: 9216
         count: 1000
         size: 9000
-      Hu0/0/0/21:
-        A_test_ip: 169.254.0.1
-        Z_test_ip: 169.254.0.0
+      et-2/0/13:
+        A_test_ip: 169.254.0.20
+        Z_test_ip: 169.254.0.21
         mtu: 9216
         count: 1000
         size: 9000
-      Hu0/2/0/21:
-        A_test_ip: 169.254.0.5
-        Z_test_ip: 169.254.0.4
+      et-3/0/12:
+        A_test_ip: 169.254.0.4
+        Z_test_ip: 169.254.0.5
         mtu: 9216
         count: 1000
         size: 9000
-      Hu0/4/0/22:
-        A_test_ip: 169.254.0.23
-        Z_test_ip: 169.254.0.22
+      et-4/0/12:
+        A_test_ip: 169.254.0.6
+        Z_test_ip: 169.254.0.7
         mtu: 9216
         count: 1000
         size: 9000
-      Hu0/3/0/21:
-        A_test_ip: 169.254.0.7
-        Z_test_ip: 169.254.0.6
+      et-5/0/12:
+        A_test_ip: 169.254.0.8
+        Z_test_ip: 169.254.0.9
         mtu: 9216
         count: 1000
         size: 9000
-      Hu0/4/0/21:
-        A_test_ip: 169.254.0.9
-        Z_test_ip: 169.254.0.8
+      et-6/0/12:
+        A_test_ip: 169.254.0.10
+        Z_test_ip: 169.254.0.11
         mtu: 9216
         count: 1000
         size: 9000
-      Hu0/5/0/21:
-        A_test_ip: 169.254.0.11
-        Z_test_ip: 169.254.0.10
+      et-7/0/12:
+        A_test_ip: 169.254.0.12
+        Z_test_ip: 169.254.0.13
         mtu: 9216
         count: 1000
         size: 9000
-      Hu0/6/0/21:
-        A_test_ip: 169.254.0.13
-        Z_test_ip: 169.254.0.12
-        mtu: 9216
-        count: 1000
-        size: 9000
-      Hu0/7/0/21:
-        A_test_ip: 169.254.0.15
-        Z_test_ip: 169.254.0.14
-        mtu: 9216
-        count: 1000
-        size: 9000
-      Hu0/1/0/22:
-        A_test_ip: 169.254.0.17
-        Z_test_ip: 169.254.0.16
+      et-8/0/12:
+        A_test_ip: 169.254.0.14
+        Z_test_ip: 169.254.0.15
         mtu: 9216
         count: 1000
         size: 9000
@@ -311,148 +79,340 @@ nodes:
     bundle_1:
        lag: 403
        type: BB
-       bw: 1500
-       lag_grnt: CHN000000
-       zloc: cr0.nsv30
-       zprt: 402
-       a_router_ipv4: 107.14.19.193/31
-       a_router_ipv6: 2001:1998:0:4::ff/127
-       z_router_ip: 66.109.2.2
-       z_router_ipv4: 107.14.19.192/31
+       bw: 1200
+       lag_grnt: CHN00000000
+       zloc: cr0.atl40
+       zprt: 403
+       z_router_ip: 66.109.2.100
 
 
     links:
-      Hu0/2/0/22:
+      et-0/0/13:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-0/0/7
-        AOLOC: CHCGILDTOS1
-        AOPRT: 59-A-2-T1
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 54-A-2-T1
-      Hu0/1/0/21:
+        zloc: cr0.atl40
+        zprt: Hu2/6/0/0 
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 57-A-2-T3
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 43-A-2-T3
+      et-1/0/12:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-1/0/6
-        AOLOC: CHCGILDTOS1
-        AOPRT: 58-A-2-T2
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 53-A-2-T2
-      Hu0/3/0/22:
+        zloc: cr0.atl40
+        zprt: Hu0/11/0/2
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 55-A-2-T11
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 41-A-2-T11
+      et-1/0/13:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-1/0/7
-        AOLOC: CHCGILDTOS1
-        AOPRT: 59-A-2-T2
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 54-A-2-T2
-      Hu0/0/0/21:
+        zloc: cr0.atl40
+        zprt: Hu2/6/0/3 
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 57-A-2-T5
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 43-A-2-T5
+      et-2/0/12:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-2/0/0
-        AOLOC: CHCGILDTOS1
-        AOPRT: 37-A-2-T1
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 37-A-2-T1
-      Hu0/2/0/21:
+        zloc: cr0.atl40
+        zprt: Hu0/11/0/3
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 56-A-2-T1
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 42-A-2-T1
+      et-2/0/13:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-2/0/6
-        AOLOC: CHCGILDTOS1
-        AOPRT: 58-A-2-T3
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 53-A-2-T3
-      Hu0/4/0/22:
+        zloc: cr0.atl40
+        zprt: Hu2/7/0/0 
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 57-A-2-T7
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 43-A-2-T7
+      et-3/0/12:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-2/0/7
-        AOLOC: CHCGILDTOS1
-        AOPRT: 59-A-2-T3
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 54-A-2-T3
-      Hu0/3/0/21:
+        zloc: cr0.atl40
+        zprt: Hu1/8/0/0 
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 56-A-2-T3
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 42-A-2-T3
+      et-4/0/12:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-3/0/6
-        AOLOC: CHCGILDTOS1
-        AOPRT: 58-A-2-T5
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 53-A-2-T5
-      Hu0/4/0/21:
+        zloc: cr0.atl40
+        zprt: Hu1/8/0/1 
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 56-A-2-T5
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 42-A-2-T5
+      et-5/0/12:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-4/0/6
-        AOLOC: CHCGILDTOS1
-        AOPRT: 58-A-2-T6
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 53-A-2-T6
-      Hu0/5/0/21:
+        zloc: cr0.atl40
+        zprt: Hu2/1/0/3 
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 56-A-2-T7
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 42-A-2-T7
+      et-6/0/12:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-5/0/6
-        AOLOC: CHCGILDTOS1
-        AOPRT: 58-A-2-T7
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 53-A-2-T7
-      Hu0/6/0/21:
+        zloc: cr0.atl40
+        zprt: Hu2/3/0/1 
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 56-A-2-T9
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 42-A-2-T9
+      et-7/0/12:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-6/0/6
-        AOLOC: CHCGILDTOS1
-        AOPRT: 58-A-2-T9
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 53-A-2-T9
-      Hu0/7/0/21:
+        zloc: cr0.atl40
+        zprt: Hu2/3/0/2 
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 56-A-2-T11
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 42-A-2-T11
+      et-8/0/12:
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
-        zloc: cr0.nsv30
-        zprt: et-7/0/6
-        AOLOC: CHCGILDTOS1
-        AOPRT: 58-A-2-T10
-        ZOLOC: NSVNTNJYOS1
-        ZOPRT: 53-A-2-T10
-      Hu0/1/0/22:
+        zloc: cr0.atl40
+        zprt: Hu2/3/0/3 
+        AOLOC: NSVNTNJYOS1
+        AOPRT: 57-A-2-T1
+        ZOLOC: ATLDGA10OS1
+        ZOPRT: 43-A-2-T1
+
+
+  cr0.atl40:
+    jira: CBOBBIPPD-3561
+    path: cr0.nsv30 to cr0.atl40 (1200G)
+    test:
+      Hu2/6/0/0 :
+        A_test_ip: 169.254.0.17
+        Z_test_ip: 169.254.0.16
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu0/11/0/2:
+        A_test_ip: 169.254.0.1
+        Z_test_ip: 169.254.0.0
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu2/6/0/3 :
+        A_test_ip: 169.254.0.19
+        Z_test_ip: 169.254.0.18
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu0/11/0/3:
+        A_test_ip: 169.254.0.3
+        Z_test_ip: 169.254.0.2
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu2/7/0/0 :
+        A_test_ip: 169.254.0.21
+        Z_test_ip: 169.254.0.20
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu1/8/0/0 :
+        A_test_ip: 169.254.0.5
+        Z_test_ip: 169.254.0.4
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu1/8/0/1 :
+        A_test_ip: 169.254.0.7
+        Z_test_ip: 169.254.0.6
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu2/1/0/3 :
+        A_test_ip: 169.254.0.9
+        Z_test_ip: 169.254.0.8
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu2/3/0/1 :
+        A_test_ip: 169.254.0.11
+        Z_test_ip: 169.254.0.10
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu2/3/0/2 :
+        A_test_ip: 169.254.0.13
+        Z_test_ip: 169.254.0.12
+        mtu: 9216
+        count: 1000
+        size: 9000
+      Hu2/3/0/3 :
+        A_test_ip: 169.254.0.15
+        Z_test_ip: 169.254.0.14
+        mtu: 9216
+        count: 1000
+        size: 9000
+
+
+    bundle_1:
+       lag: 403
+       type: BB
+       bw: 1200
+       lag_grnt: CHN00000000
+       zloc: cr0.nsv30
+       zprt: 403
+       z_router_ip: 66.109.2.2
+
+
+    links:
+      Hu2/6/0/0 :
         type: BB
         bw: 100
-        lag: 402
+        lag: 403
         grnt: CHN0000000
         zloc: cr0.nsv30
-        zprt: et-8/0/6
-        AOLOC: CHCGILDTOS1
-        AOPRT: 58-A-2-T11
+        zprt: et-0/0/13
+        AOLOC: ATLDGA10OS1
+        AOPRT: 43-A-2-T3
         ZOLOC: NSVNTNJYOS1
-        ZOPRT: 53-A-2-T11
+        ZOPRT: 57-A-2-T3
+      Hu0/11/0/2:
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-1/0/12
+        AOLOC: ATLDGA10OS1
+        AOPRT: 41-A-2-T11
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 55-A-2-T11
+      Hu2/6/0/3 :
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-1/0/13
+        AOLOC: ATLDGA10OS1
+        AOPRT: 43-A-2-T5
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 57-A-2-T5
+      Hu0/11/0/3:
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-2/0/12
+        AOLOC: ATLDGA10OS1
+        AOPRT: 42-A-2-T1
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 56-A-2-T1
+      Hu2/7/0/0 :
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-2/0/13
+        AOLOC: ATLDGA10OS1
+        AOPRT: 43-A-2-T7
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 57-A-2-T7
+      Hu1/8/0/0 :
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-3/0/12
+        AOLOC: ATLDGA10OS1
+        AOPRT: 42-A-2-T3
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 56-A-2-T3
+      Hu1/8/0/1 :
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-4/0/12
+        AOLOC: ATLDGA10OS1
+        AOPRT: 42-A-2-T5
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 56-A-2-T5
+      Hu2/1/0/3 :
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-5/0/12
+        AOLOC: ATLDGA10OS1
+        AOPRT: 42-A-2-T7
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 56-A-2-T7
+      Hu2/3/0/1 :
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-6/0/12
+        AOLOC: ATLDGA10OS1
+        AOPRT: 42-A-2-T9
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 56-A-2-T9
+      Hu2/3/0/2 :
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-7/0/12
+        AOLOC: ATLDGA10OS1
+        AOPRT: 42-A-2-T11
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 56-A-2-T11
+      Hu2/3/0/3 :
+        type: BB
+        bw: 100
+        lag: 403
+        grnt: CHN0000000
+        zloc: cr0.nsv30
+        zprt: et-8/0/12
+        AOLOC: ATLDGA10OS1
+        AOPRT: 43-A-2-T1
+        ZOLOC: NSVNTNJYOS1
+        ZOPRT: 57-A-2-T1
 
 
