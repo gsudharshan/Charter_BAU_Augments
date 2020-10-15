@@ -201,7 +201,7 @@ int {{intf}}
 description [TYPE={{intf_attr.type|upper}}][BW={{intf_attr.bw}}G][LAG={{intf_attr.lag}}][GRNT={{intf_attr.grnt|upper}}][ZLOC={{intf_attr.zloc|upper}}][ZPRT={{intf_attr.zprt|upper}}][AOLOC={{intf_attr.AOLOC|upper|replace("NONE", "NULL")}}][AOPRT={{intf_attr.AOPRT|upper|replace("NONE", "NULL")}}][ZOLOC={{intf_attr.ZOLOC|upper|replace("NONE", "NULL")}}][ZOPRT={{intf_attr.ZOPRT|upper|replace("NONE", "NULL")}}]
 bundle id {{intf_attr.lag}} mode active
 lacp period short
-carrier-delay up 500 down 0
+carrier-delay up 2000 down 0
 dampening 1 750 2000 4
 !
 {% endfor %}
