@@ -6,208 +6,7 @@ This BAU Augment configuration is for ROUTER:{{ inventory_hostname }} & JIRA:{{ 
 
 CHANGE-SPECIFIC PRE-CHECKS
 
-Check interfaces:BAR01CNTLCO
-
-*** Pre-check
-
-show bgp neighbor 96.34.0.121 received routes
-
-*** Implementation***
-
-no prefix-set AS40294_IN_IPV4_NETS
-! 
-prefix-set AS40294_IN_IPV4_NETS
-#Networks,
-22.239.0.0/18,
-24.169.188.0/24,
-24.169.190.0/24,
-47.43.24.0/21,
-47.43.224.48/28,
-47.43.224.96/28,
-68.114.36.96/28,
-68.114.38.32/28,
-98.7.160.0/19,
-98.8.60.0/22,
-98.8.64.0/20,
-98.8.76.0/22,
-98.8.160.0/20,
-98.8.176.0/20,
-98.9.96.0/20,
-98.9.252.0/22,
-#Ranges,
-71.10.216.0/24 ge 32,
-98.8.64.0/22 le 32,
-98.8.176.0/22 le 32,
-150.181.106.0/23,
-#Anycast,
-24.216.90.3/32,
-24.240.146.3/32,
-98.7.159.192/32,
-98.8.44.0/22,
-47.43.34.0/24,
-47.43.48.0/20
-end-set
-
-
-***Post Checks ***
-
-show bgp neighbor 96.34.0.121 routes
-
-Ensure new route 47.43.48.0/20 is accepted
-
-
-
-BAR02CNTLCO
-
-*** Pre-check
-
-show bgp neighbor 96.34.0.131 received routes
-
-*** Implementation***
-
-no prefix-set AS40294_IN_IPV4_NETS
-! 
-prefix-set AS40294_IN_IPV4_NETS
-#Networks,
-22.239.0.0/18,
-24.169.188.0/24,
-24.169.190.0/24,
-47.43.24.0/21,
-47.43.224.48/28,
-47.43.224.96/28,
-68.114.36.96/28,
-68.114.38.32/28,
-98.7.160.0/19,
-98.8.60.0/22,
-98.8.64.0/20,
-98.8.76.0/22,
-98.8.160.0/20,
-98.8.176.0/20,
-98.9.96.0/20,
-98.9.252.0/22,
-#Ranges,
-71.10.216.0/24 ge 32,
-98.8.64.0/22 le 32,
-98.8.176.0/22 le 32,
-150.181.106.0/23,
-#Anycast,
-24.216.90.3/32,
-24.240.146.3/32,
-98.7.159.192/32,
-98.8.44.0/22,
-47.43.34.0/24,
-47.43.48.0/20
-end-set
-
-
-***Post Checks ***
-
-show bgp neighbor 96.34.0.131 routes
-
-Ensure new route 47.43.48.0/20 is accepted
-
-
-
-
-BAR02CHLTNC
-
-
-*** Pre-check
-
-show bgp neighbor 96.34.173.77 received routes
-
-*** Implementation***
-
-no prefix-set IPV4-ELF-IN
-
-! 
-
-prefix-set IPV4-ELF-IN
-22.239.160.0/21 le 32,
-47.43.16.0/21,
-98.8.128.0/20,
-98.8.40.0/22,
-98.8.56.0/22,
-98.8.80.0/23,
-150.181.104.0/23,
-98.8.144.0/20,
-71.10.216.0/24 ge 32,
-98.7.128.0/19,
-98.8.80.0/20,
-98.8.80.0/22,
-24.169.188.0/24,
-24.169.189.0/24,
-24.169.188.0/23,
-24.169.190.0/24,
-98.8.92.0/23,
-22.239.128.0/18,
-47.43.24.0/21,
-22.83.128.0/18,
-22.83.160.0/19 
-47.43.32.0/20,  
-22.239.224.0/21,
-47.43.34.0/24,  
-end-set
-
-
-***Post Checks ***
-
-show bgp neighbor 96.34.173.77 routes
-
-Ensure 47.43.32.0/20, 22.239.224.0/21 and 47.43.34.0/24 are accepted
-
-
-BAR03CHLTNC
-
-
-
-*** Pre-check
-
-
-
-show bgp neighbor 96.34.173.79 received routes
-
-
-
-*** Implementation***
-
-no prefix-set IPV4-ELF-IN
-
-! 
-
-prefix-set IPV4-ELF-IN
-22.239.160.0/21 le 32,
-47.43.16.0/21,
-98.8.128.0/20,
-98.8.40.0/22,
-98.8.56.0/22,
-98.8.80.0/23,
-150.181.104.0/23,
-98.8.144.0/20,
-71.10.216.0/24 ge 32,
-98.7.128.0/19,
-98.8.80.0/20,
-98.8.80.0/22,
-24.169.188.0/24,
-24.169.189.0/24,
-24.169.188.0/23,
-24.169.190.0/24,
-98.8.92.0/23,
-22.239.128.0/18,
-47.43.24.0/21,
-22.83.128.0/18,
-22.83.160.0/19,
-47.43.32.0/20,
-22.239.224.0/21,
-47.43.34.0/24
-end-set
-
-
-***Post Checks ***
-
-show bgp neighbor 96.34.173.79 routes
-
-Ensure 47.43.32.0/20, 22.239.224.0/21 and 47.43.34.0/24 are accepted
+Check interfaces:
 
 {% for intf,intf_attr in node.test.items()|sort %}
 sh run formal {{ intf }}
@@ -259,7 +58,8 @@ show route ipv6 unicast {{ node.new_bundle_1.a_router_ipv6 }}
 LAG Configuration:
 
 interface be{{ node.new_bundle_1.lag }}
-interface be{{ node.new_bundle_1.lag }} description [TYPE={{ node.new_bundle_1.type|upper }}][BW={{ node.new_bundle_1.bw }}G][GRNT={{ node.new_bundle_1.lag_grnt|upper }}][ZLOC={{ node.new_bundle_1.zloc|upper }}][ZPRT=BE{{ node.new_bundle_1.zprt }}][IP={{ node.new_bundle_1.z_router_ip }}] 
+interface be{{ node.new_bundle_1.lag }} description [TYPE={{ node.new_bundle_1.type|upper }}][BW={{ node.new_bundle_1.bw }}G][GRNT={{ node.new_bundle_1.lag_grnt|upper }}][ZLOC={{ node.new_bundle_1.zloc|upper }}][ZPRT=BE{{ node.new_bun
+dle_1.zprt }}][IP={{ node.new_bundle_1.z_router_ip }}] 
 interface be{{ node.new_bundle_1.lag }} mtu 9216
 interface be{{ node.new_bundle_1.lag }} service-policy QSP-ALL-CORE-PROTECTED-OUT
 interface be{{ node.new_bundle_1.lag }} ipv4 address {{ node.new_bundle_1.a_router_ipv4 }}
@@ -301,7 +101,8 @@ show route ipv6 unicast {{ node.new_bundle_2.a_router_ipv6 }}
 LAG Configuration:
 
 interface be{{ node.new_bundle_2.lag }}
-interface be{{ node.new_bundle_2.lag }} description [TYPE={{ node.new_bundle_2.type|upper }}][BW={{ node.new_bundle_2.bw }}G][GRNT={{ node.new_bundle_2.lag_grnt|upper }}][ZLOC={{ node.new_bundle_2.zloc|upper }}][ZPRT=BE{{ node.new_bundle_2.zprt }}][IP={{ node.new_bundle_2.z_router_ip }}]
+interface be{{ node.new_bundle_2.lag }} description [TYPE={{ node.new_bundle_2.type|upper }}][BW={{ node.new_bundle_2.bw }}G][GRNT={{ node.new_bundle_2.lag_grnt|upper }}][ZLOC={{ node.new_bundle_2.zloc|upper }}][ZPRT=BE{{ node.new_bun
+dle_2.zprt }}][IP={{ node.new_bundle_2.z_router_ip }}]
 interface be{{ node.new_bundle_2.lag }} mtu 9216
 interface be{{ node.new_bundle_2.lag }} service-policy QSP-ALL-CORE-PROTECTED-OUT
 interface be{{ node.new_bundle_2.lag }} ipv4 address {{ node.new_bundle_2.a_router_ipv4 }}
@@ -343,7 +144,8 @@ show route ipv6 unicast {{ node.new_bundle_3.a_router_ipv6 }}
 LAG Configuration:
 
 interface be{{ node.new_bundle_3.lag }}
-interface be{{ node.new_bundle_3.lag }} description [TYPE={{ node.new_bundle_3.type|upper }}][BW={{ node.new_bundle_3.bw }}G][GRNT={{ node.new_bundle_3.lag_grnt|upper }}][ZLOC={{ node.new_bundle_3.zloc|upper }}][ZPRT=BE{{ node.new_bundle_3.zprt }}][IP={{ node.new_bundle_3.z_router_ip }}]
+interface be{{ node.new_bundle_3.lag }} description [TYPE={{ node.new_bundle_3.type|upper }}][BW={{ node.new_bundle_3.bw }}G][GRNT={{ node.new_bundle_3.lag_grnt|upper }}][ZLOC={{ node.new_bundle_3.zloc|upper }}][ZPRT=BE{{ node.new_bun
+dle_3.zprt }}][IP={{ node.new_bundle_3.z_router_ip }}]
 interface be{{ node.new_bundle_3.lag }} mtu 9216
 interface be{{ node.new_bundle_3.lag }} service-policy QSP-ALL-CORE-PROTECTED-OUT
 interface be{{ node.new_bundle_3.lag }} ipv4 address {{ node.new_bundle_3.a_router_ipv4 }}
@@ -381,7 +183,8 @@ Remove test IP's and add interface to bundle:
 no int {{intf}}
 !
 int {{intf}}
-description [TYPE={{intf_attr.type|upper}}][BW={{intf_attr.bw}}G][LAG=BE{{intf_attr.lag}}][GRNT={{intf_attr.grnt|upper}}][ZLOC={{intf_attr.zloc|upper|replace("NONE", "NULL")}}][ZPRT={{intf_attr.zprt|upper|replace("NONE", "NULL")}}][AOLOC={{intf_attr.AOLOC|upper|replace("NONE", "NULL")}}][AOPRT={{intf_attr.AOPRT|upper|replace("NONE", "NULL")}}][ZOLOC={{intf_attr.ZOLOC|upper|replace("NONE", "NULL") }}][ZOPRT={{ intf_attr.ZOPRT|upper|replace("NONE", "NULL") }}]
+description [TYPE={{intf_attr.type|upper}}][BW={{intf_attr.bw}}G][LAG=BE{{intf_attr.lag}}][GRNT={{intf_attr.grnt|upper}}][ZLOC={{intf_attr.zloc|upper|replace("NONE", "NULL")}}][ZPRT={{intf_attr.zprt|upper|replace("NONE", "NULL")}}][AO
+LOC={{intf_attr.AOLOC|upper|replace("NONE", "NULL")}}][AOPRT={{intf_attr.AOPRT|upper|replace("NONE", "NULL")}}][ZOLOC={{intf_attr.ZOLOC|upper|replace("NONE", "NULL") }}][ZOPRT={{ intf_attr.ZOPRT|upper|replace("NONE", "NULL") }}]
 bundle id {{intf_attr.lag}} mode active
 lacp period short
 carrier-delay up 2000 down 0
@@ -391,17 +194,20 @@ dampening 1 750 2000 4
 
 
 {% if node.bundle_1 is defined %}
-interface be{{ node.bundle_1.lag }} description [TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ node.bundle_1.z_router_ip }}]
+interface be{{ node.bundle_1.lag }} description [TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ nod
+e.bundle_1.z_router_ip }}]
 {% else %}
 {% endif %}
 
 {% if node.bundle_2 is defined %}
-interface be{{ node.bundle_2.lag }} description [TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ node.bundle_2.z_router_ip }}]
+interface be{{ node.bundle_2.lag }} description [TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ nod
+e.bundle_2.z_router_ip }}]
 {% else %}
 {% endif %}
 
 {% if node.bundle_3 is defined %}
-interface be{{ node.bundle_3.lag }} description [TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ node.bundle_3.z_router_ip }} ]
+interface be{{ node.bundle_3.lag }} description [TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ nod
+e.bundle_3.z_router_ip }} ]
 {% else %}
 {% endif %}
 
@@ -486,5 +292,3 @@ show pim neighbors
 monitor interface be{{ node.new_bundle_3.lag }} be{{ node.new_bundle_3.lag }} wide
 {% else %}  
 {% endif %}
-
-
