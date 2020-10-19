@@ -191,20 +191,17 @@ dampening 1 750 2000 4
 
 
 {% if node.bundle_1 is defined %}
-interface be{{ node.bundle_1.lag }} description [TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ nod
-e.bundle_1.z_router_ip }}]
+interface be{{ node.bundle_1.lag }} description [TYPE={{ node.bundle_1.type|upper }}][BW={{ node.bundle_1.bw }}G][GRNT={{ node.bundle_1.lag_grnt|upper }}][ZLOC={{ node.bundle_1.zloc|upper }}][ZPRT=BE{{ node.bundle_1.zprt }}][IP={{ node.bundle_1.z_router_ip }}]
 {% else %}
 {% endif %}
 
 {% if node.bundle_2 is defined %}
-interface be{{ node.bundle_2.lag }} description [TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ nod
-e.bundle_2.z_router_ip }}]
+interface be{{ node.bundle_2.lag }} description [TYPE={{ node.bundle_2.type|upper }}][BW={{ node.bundle_2.bw }}G][GRNT={{ node.bundle_2.lag_grnt|upper }}][ZLOC={{ node.bundle_2.zloc|upper }}][ZPRT=BE{{ node.bundle_2.zprt }}][IP={{ node.bundle_2.z_router_ip }}]
 {% else %}
 {% endif %}
 
 {% if node.bundle_3 is defined %}
-interface be{{ node.bundle_3.lag }} description [TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ nod
-e.bundle_3.z_router_ip }} ]
+interface be{{ node.bundle_3.lag }} description [TYPE={{ node.bundle_3.type|upper }}][BW={{ node.bundle_3.bw }}G][GRNT={{ node.bundle_3.lag_grnt|upper }}][ZLOC={{ node.bundle_3.zloc|upper }}][ZPRT=BE{{ node.bundle_3.zprt }}][IP={{ node.bundle_3.z_router_ip }} ]
 {% else %}
 {% endif %}
 
