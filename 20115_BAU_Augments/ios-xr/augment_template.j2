@@ -180,8 +180,7 @@ Remove test IP's and add interface to bundle:
 no int {{intf}}
 !
 int {{intf}}
-description [TYPE={{intf_attr.type|upper}}][BW={{intf_attr.bw}}G][LAG=BE{{intf_attr.lag}}][GRNT={{intf_attr.grnt|upper}}][ZLOC={{intf_attr.zloc|upper|replace("NONE", "NULL")}}][ZPRT={{intf_attr.zprt|upper|replace("NONE", "NULL")}}][AO
-LOC={{intf_attr.AOLOC|upper|replace("NONE", "NULL")}}][AOPRT={{intf_attr.AOPRT|upper|replace("NONE", "NULL")}}][ZOLOC={{intf_attr.ZOLOC|upper|replace("NONE", "NULL") }}][ZOPRT={{ intf_attr.ZOPRT|upper|replace("NONE", "NULL") }}]
+description [TYPE={{intf_attr.type|upper}}][BW={{intf_attr.bw}}G][LAG=BE{{intf_attr.lag}}][GRNT={{intf_attr.grnt|upper}}][ZLOC={{intf_attr.zloc|upper|replace("NONE", "NULL")}}][ZPRT={{intf_attr.zprt|upper|replace("NONE", "NULL")}}][AOLOC={{intf_attr.AOLOC|upper|replace("NONE", "NULL")}}][AOPRT={{intf_attr.AOPRT|upper|replace("NONE", "NULL")}}][ZOLOC={{intf_attr.ZOLOC|upper|replace("NONE", "NULL") }}][ZOPRT={{ intf_attr.ZOPRT|upper|replace("NONE", "NULL") }}]
 bundle id {{intf_attr.lag}} mode active
 lacp period short
 carrier-delay up 2000 down 0
