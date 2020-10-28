@@ -67,17 +67,16 @@ interface be{{ node.new_bundle_1.lag }} load-interval 30
 interface be{{ node.new_bundle_1.lag }} minimum-active links 1
 interface be{{ node.new_bundle_1.lag }} flow ipv4 monitor NETFLOW_IPV4 sampler FNF_SAMPLER_MAP ingress
 interface be{{ node.new_bundle_1.lag }} flow ipv6 monitor NETFLOW_IPV6 sampler FNF_SAMPLER_MAP ingress
-interface be{{ node.new_bundle_1.lag }} flow mpls monitor NETFLOW_MPLS sampler FNF_SAMPLER_MAP ingress
 interface be{{ node.new_bundle_1.lag }} dampening 1 750 2000 4
-router isis TWC interface be{{ node.new_bundle_1.lag }} 
-router isis TWC interface be{{ node.new_bundle_1.lag }} suppressed
-router isis TWC interface be{{ node.new_bundle_1.lag }} circuit-type level-2-only
-router isis TWC interface be{{ node.new_bundle_1.lag }} point-to-point
-router isis TWC interface be{{ node.new_bundle_1.lag }} hello-padding disable
-router isis TWC interface be{{ node.new_bundle_1.lag }} address-family ipv4 unicast 
-router isis TWC interface be{{ node.new_bundle_1.lag }} address-family ipv4 unicast metric 65000
-router isis TWC interface be{{ node.new_bundle_1.lag }} address-family ipv4 unicast mpls ldp sync
-router isis TWC interface be{{ node.new_bundle_1.lag }} address-family ipv6 unicast
+router isis default interface be{{ node.new_bundle_1.lag }} 
+router isis default interface be{{ node.new_bundle_1.lag }} suppressed
+router isis default interface be{{ node.new_bundle_1.lag }} circuit-type level-2-only
+router isis default interface be{{ node.new_bundle_1.lag }} point-to-point
+router isis default interface be{{ node.new_bundle_1.lag }} hello-padding disable
+router isis default interface be{{ node.new_bundle_1.lag }} address-family ipv4 unicast 
+router isis default interface be{{ node.new_bundle_1.lag }} address-family ipv4 unicast metric 65000
+router isis default interface be{{ node.new_bundle_1.lag }} address-family ipv4 unicast mpls ldp sync
+router isis default interface be{{ node.new_bundle_1.lag }} address-family ipv6 unicast
 rsvp interface be{{ node.new_bundle_1.lag }} 
 rsvp interface be{{ node.new_bundle_1.lag }} bandwidth 20000000
 mpls traffic-eng interface be{{ node.new_bundle_1.lag }} 
@@ -111,15 +110,15 @@ interface be{{ node.new_bundle_2.lag }} flow ipv4 monitor NETFLOW_IPV4 sampler F
 interface be{{ node.new_bundle_2.lag }} flow ipv6 monitor NETFLOW_IPV6 sampler FNF_SAMPLER_MAP ingress
 interface be{{ node.new_bundle_2.lag }} flow mpls monitor NETFLOW_MPLS sampler FNF_SAMPLER_MAP ingress
 interface be{{ node.new_bundle_2.lag }} dampening 1 750 2000 4
-router isis TWC interface be{{ node.new_bundle_2.lag }}
-router isis TWC interface be{{ node.new_bundle_2.lag }} suppressed
-router isis TWC interface be{{ node.new_bundle_2.lag }} circuit-type level-2-only
-router isis TWC interface be{{ node.new_bundle_2.lag }} point-to-point
-router isis TWC interface be{{ node.new_bundle_2.lag }} hello-padding disable
-router isis TWC interface be{{ node.new_bundle_2.lag }} address-family ipv4 unicast
-router isis TWC interface be{{ node.new_bundle_2.lag }} address-family ipv4 unicast metric 65000
-router isis TWC interface be{{ node.new_bundle_2.lag }} address-family ipv4 unicast mpls ldp sync
-router isis TWC interface be{{ node.new_bundle_2.lag }} address-family ipv6 unicast
+router isis default interface be{{ node.new_bundle_2.lag }}
+router isis default interface be{{ node.new_bundle_2.lag }} suppressed
+router isis default interface be{{ node.new_bundle_2.lag }} circuit-type level-2-only
+router isis default interface be{{ node.new_bundle_2.lag }} point-to-point
+router isis default interface be{{ node.new_bundle_2.lag }} hello-padding disable
+router isis default interface be{{ node.new_bundle_2.lag }} address-family ipv4 unicast
+router isis default interface be{{ node.new_bundle_2.lag }} address-family ipv4 unicast metric 65000
+router isis default interface be{{ node.new_bundle_2.lag }} address-family ipv4 unicast mpls ldp sync
+router isis default interface be{{ node.new_bundle_2.lag }} address-family ipv6 unicast
 rsvp interface be{{ node.new_bundle_2.lag }}
 rsvp interface be{{ node.new_bundle_2.lag }} bandwidth 20000000
 mpls traffic-eng interface be{{ node.new_bundle_2.lag }}
@@ -153,15 +152,15 @@ interface be{{ node.new_bundle_3.lag }} flow ipv4 monitor NETFLOW_IPV4 sampler F
 interface be{{ node.new_bundle_3.lag }} flow ipv6 monitor NETFLOW_IPV6 sampler FNF_SAMPLER_MAP ingress
 interface be{{ node.new_bundle_3.lag }} flow mpls monitor NETFLOW_MPLS sampler FNF_SAMPLER_MAP ingress
 interface be{{ node.new_bundle_3.lag }} dampening 1 750 2000 4
-router isis TWC interface be{{ node.new_bundle_3.lag }}
-router isis TWC interface be{{ node.new_bundle_3.lag }} suppressed
-router isis TWC interface be{{ node.new_bundle_3.lag }} circuit-type level-2-only
-router isis TWC interface be{{ node.new_bundle_3.lag }} point-to-point
-router isis TWC interface be{{ node.new_bundle_3.lag }} hello-padding disable
-router isis TWC interface be{{ node.new_bundle_3.lag }} address-family ipv4 unicast
-router isis TWC interface be{{ node.new_bundle_3.lag }} address-family ipv4 unicast metric 65000
-router isis TWC interface be{{ node.new_bundle_3.lag }} address-family ipv4 unicast mpls ldp sync
-router isis TWC interface be{{ node.new_bundle_3.lag }} address-family ipv6 unicast
+router isis default interface be{{ node.new_bundle_3.lag }}
+router isis default interface be{{ node.new_bundle_3.lag }} suppressed
+router isis default interface be{{ node.new_bundle_3.lag }} circuit-type level-2-only
+router isis default interface be{{ node.new_bundle_3.lag }} point-to-point
+router isis default interface be{{ node.new_bundle_3.lag }} hello-padding disable
+router isis default interface be{{ node.new_bundle_3.lag }} address-family ipv4 unicast
+router isis default interface be{{ node.new_bundle_3.lag }} address-family ipv4 unicast metric 65000
+router isis default interface be{{ node.new_bundle_3.lag }} address-family ipv4 unicast mpls ldp sync
+router isis default interface be{{ node.new_bundle_3.lag }} address-family ipv6 unicast
 rsvp interface be{{ node.new_bundle_3.lag }}
 rsvp interface be{{ node.new_bundle_3.lag }} bandwidth 20000000
 mpls traffic-eng interface be{{ node.new_bundle_3.lag }}
